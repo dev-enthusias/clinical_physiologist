@@ -33,7 +33,7 @@ export default function StandardForm() {
   return (
     <Form className='pt-10 px-5 py-5 font-montserrat text-gray-700'>
       <p className='text-sm mb-2'>
-        Be a professionally recognised member of the PAPCPN body
+        Become a professionally recognised member of the PAPCPN body nation wide
       </p>
       <h1 className='text-2xl font-bold'>Standard membership</h1>
       <p className='text-sm mb-5'>Please fill in all the information</p>
@@ -116,7 +116,7 @@ export default function StandardForm() {
       </div>
 
       <div className='flex gap-2 mb-4'>
-        <div>
+        <div className='w-1/2'>
           <label htmlFor='phone' className='block font-medium mb-1'>
             Mobile Contact
           </label>
@@ -130,7 +130,7 @@ export default function StandardForm() {
           />
         </div>
 
-        <div>
+        <div className='w-1/2'>
           <label htmlFor='w_phone' className='block font-medium mb-1'>
             Whatsapp Contact
           </label>
@@ -207,28 +207,33 @@ export default function StandardForm() {
       </div>
 
       <div className='mb-4'>
-        <label htmlFor='uni' className='block font-medium mb-1'>
-          University attended or attending
+        <label htmlFor='type' className='block font-medium mb-1'>
+          Physiologist type
         </label>
-        <input
-          type='text'
-          name='university'
-          id='uni'
-          required
-          className='appearance-none border border-gray-400 px-3 py-2.5 rounded-md focus:outline-none col-span-1 w-full'
-        />
+        <select
+          name='type'
+          id='type'
+          className='border border-gray-400 px-3 py-2.5 rounded-md focus:outline-none col-span-1 w-full'
+        >
+          <option value=''>Select your level</option>
+          <option value='clinical'>Clinical physiologist</option>
+          <option value='grandfathering'>
+            Grandfathering clinical physiologist
+          </option>
+          <option value='practicing'>Practicing clinical physiologist</option>
+        </select>
       </div>
 
       <div className='mb-4'>
-        <label htmlFor='hod' className='block font-medium mb-1'>
-          Name of current HOD{' '}
-          <span className='text-red-500 text-sm'>(optional)</span>
+        <label htmlFor='cert' className='block font-medium mb-1'>
+          BSc. certificate
         </label>
         <input
-          type='text'
-          name='hod'
-          id='hod'
-          className='appearance-none border border-gray-400 px-3 py-2.5 rounded-md focus:outline-none col-span-1 w-full'
+          type='file'
+          name='certificate'
+          id='cert'
+          required
+          className='appearance-none border-dashed border border-gray-400 px-3 py-2.5 rounded-md focus:outline-none col-span-1 w-full'
         />
       </div>
 

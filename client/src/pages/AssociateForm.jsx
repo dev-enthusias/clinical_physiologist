@@ -166,7 +166,7 @@ export default function AssociateForm() {
             <input
               type='text'
               placeholder='Town/City'
-              name='town_city'
+              name='city'
               required
               className='appearance-none border border-gray-400 px-3 py-2.5 rounded-md focus:outline-none col-span-1 w-1/2'
             />
