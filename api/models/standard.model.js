@@ -59,6 +59,14 @@ const standardSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    type: {
+      type: String,
+      require: true,
+    },
+    certificate: {
+      type: String,
+      require: true,
+    },
   },
   { timestamps: true }
 );

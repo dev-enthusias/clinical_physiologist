@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import RegisterAs from './pages/RegisterAs';
-import AssociateForm from './pages/AssociateForm';
+import AssociateForm, { action as asssoicateAction } from './pages/AssociateForm';
 import StandardForm from './pages/StandardForm';
 import Error from './pages/Error';
 import './index.css';
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       {
         path: '/register/associate',
         element: <AssociateForm />,
+        action: asssoicateAction,
       },
       {
         path: '/register/standard',

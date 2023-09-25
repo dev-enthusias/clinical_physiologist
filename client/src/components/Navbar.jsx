@@ -10,11 +10,13 @@ export default function Navbar() {
   return (
     <nav className='flex justify-between items-center font-montserrat font-semibold px-5 py-1 lg:px-10 lg:py-2 sticky lg:static top-0 left-0 w-full bg-white z-50 shadow-md shadow-gray-200'>
       <div className='h-24 w-24 lg:w-28 lg:h-28'>
-        <img
-          src={logo}
-          alt='Papcpn logo'
-          className='object-cover w-full h-full'
-        />
+        <Link to={'/'}>
+          <img
+            src={logo}
+            alt='Papcpn logo'
+            className='object-cover w-full h-full'
+          />
+        </Link>
       </div>
 
       <ul

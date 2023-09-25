@@ -1,7 +1,21 @@
 import React from 'react';
-import { Form } from 'react-router-dom';
+import { Form, useActionData } from 'react-router-dom';
+
+export async function action({ request }) {
+  try {
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData);
+    return data;
+  } catch (error) {
+    console.error('Error processing form data:', error);
+    throw error;
+  }
+}
 
 export default function AssociateForm() {
+  const data = useActionData();
+  console.log(data);
+
   const titleOptions = [
     { value: 'mr', label: 'Mr' },
     { value: 'mrs', label: 'Mrs' },
@@ -17,21 +31,16 @@ export default function AssociateForm() {
     'Abia', 'Adamawa', 'Akwa Ibom','Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno', 'Cross River', 'Delta','Ebonyi', 'Edo', 'Ekiti', 'Enugu', 'Federal Capital Territory','Gombe', 'Imo', 'Jigawa', 'Kaduna', 'Kano', 'Katsina', 'Kebbi', 'Kogi', 'Kwara', 'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun', 'Oyo', 'Plateau','Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara',
   ];
 
+  // prettier-ignore
   const modalityOptions = [
-    'Please select modality',
-    'Cardiac Physiology',
-    'Cardiac Pulmonary Physiology',
-    'Clinical Exercise/Sports Physiology',
-    'Gastro - Intestinal Physiology',
-    'Human Reproductive Physiology',
-    'Neuro Physiology',
-    'Physiologist in Paramedical/Emergency Services',
-    'Renal Physiology (Dialysis)',
-    'Respiratory Physiology',
+    'Please select modality', 'Cardiac Physiology', 'Cardiac Pulmonary Physiology', 'Clinical Exercise/Sports Physiology', 'Gastro - Intestinal Physiology', 'Human Reproductive Physiology', 'Neuro Physiology','Physiologist in Paramedical/Emergency Services', 'Renal Physiology (Dialysis)', 'Respiratory Physiology',
   ];
 
   return (
-    <Form className='pt-10 px-5 py-5 font-montserrat text-gray-700'>
+    <Form
+      className='pt-10 px-5 py-5 font-montserrat text-gray-700'
+      method='post'
+    >
       <p className='text-sm mb-2'>Be a recognised member of the PAPCPN body</p>
       <h1 className='text-2xl font-bold'>Associate membership</h1>
       <p className='text-sm mb-5'>Please fill in all the information</p>
@@ -113,10 +122,10 @@ export default function AssociateForm() {
         />
       </div>
 
-      <div className='flex gap-2 mb-4'>
-        <div>
+      <div className='flex gap-2 mb-4 max-[358px]:flex-col'>
+        <div className='w-full'>
           <label htmlFor='phone' className='block font-medium mb-1'>
-            Mobile Contact
+            Mobile
           </label>
           <input
             type='number'
@@ -128,9 +137,9 @@ export default function AssociateForm() {
           />
         </div>
 
-        <div>
+        <div className='w-full'>
           <label htmlFor='w_phone' className='block font-medium mb-1'>
-            Whatsapp Contact
+            Whatsapp <span className='text-red-500 text-xs'>(optional)</span>
           </label>
           <input
             type='number'
@@ -220,7 +229,7 @@ export default function AssociateForm() {
       <div className='mb-4'>
         <label htmlFor='hod' className='block font-medium mb-1'>
           Name of current HOD{' '}
-          <span className='text-red-500 text-sm'>(optional)</span>
+          <span className='text-red-500 text-xs'>(optional)</span>
         </label>
         <input
           type='text'
