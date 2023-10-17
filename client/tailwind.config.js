@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         montserrat: ['Montserrat'],
+        'open-sans': ['Open Sans'],
       },
     },
   },

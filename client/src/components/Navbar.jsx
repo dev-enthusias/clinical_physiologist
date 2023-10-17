@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import logo from '../assets/logo.png';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <nav className='flex justify-between items-center font-montserrat font-semibold px-5 py-1 lg:px-10 lg:py-2 sticky lg:static top-0 left-0 w-full bg-white z-50 shadow-md shadow-gray-200'>
+    <nav className='flex justify-between items-center font-montserrat font-semibold px-6 py-1 lg:px-10 lg:py-2 top-0 left-0 w-full bg-blue-50 z-50 shadow-sm shadow-gray-200'>
       <div className='h-24 w-24 lg:w-28 lg:h-28'>
         <Link to={'/'}>
           <img
-            src={logo}
+            src='/logo.png'
             alt='Papcpn logo'
             className='object-cover w-full h-full'
           />
@@ -22,7 +20,7 @@ export default function Navbar() {
       <ul
         className={`lg:flex lg:items-center lg:gap-10 ${
           openMenu
-            ? `flex flex-col items-start gap-10  absolute top-[105px] left-0 h-screen w-4/5 bg-blue-950 text-white px-5 py-5`
+            ? `flex flex-col items-start gap-10 top-[105px] absolute left-1/2 -translate-x-1/2 rounded-2xl w-4/5 bg-blue-950 text-white px-5 pt-5 z-50 pb-10`
             : 'hidden'
         }`}
       >
@@ -38,8 +36,13 @@ export default function Navbar() {
         <li>
           <Link to='/contact'>Contact us</Link>
         </li>
-        <li className='lg:ml-12 bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-3 rounded-md'>
-          <Link to='/register/select'>Register</Link>
+        <li>
+          <Link
+            to='/register/select'
+            className='lg:ml-12 bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-3 rounded-md lg:rounded-none font-open-sans'
+          >
+            Register
+          </Link>
         </li>
       </ul>
 

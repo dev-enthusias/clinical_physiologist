@@ -7,7 +7,10 @@ export default function RegisterAs() {
   const [regType, setRegType] = useState('');
 
   return (
-    <form className='px-5 pt-10 py-5 font-montserrat text-gray-700 lg:max-w-3xl lg:m-auto'>
+    <form
+      className='px-5 pt-10 py-5 font-montserrat text-gray-700 lg:max-w-3xl lg:m-auto'
+      onSubmit={e => e.preventDefault()}
+    >
       <h1 className='text-2xl font-bold lg:text-center lg:mb-2'>Register as</h1>
       <p className='text-sm lg:text-center'>
         Please select the case that applies to you.
@@ -37,7 +40,7 @@ export default function RegisterAs() {
         </div>
 
         <div
-          className={`border-2  rounded-md px-3 py-4 bg-blue-50 lg:w-96 ${
+          className={`border-2  rounded-md px-3 py-4 bg-blue-100 lg:w-96 ${
             checkStandard ? 'border-blue-700' : 'border-gray-300'
           }`}
           onClick={() => {

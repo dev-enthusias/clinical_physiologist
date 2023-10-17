@@ -5,7 +5,18 @@ export async function action({ request }) {
   try {
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
-    return data;
+
+    await fetch('http:localhost:3000/api/register/associate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json)
+      .then(data => console.log(data));
+
+    return {};
   } catch (error) {
     console.error('Error processing form data:', error);
     throw error;
