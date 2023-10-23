@@ -10,7 +10,6 @@ import members from '../assets/members.jpeg';
 import physiologist from '../assets/physiologists.jpeg';
 import partner1 from '../assets/partner1.jpeg';
 import flyer from '../assets/flyer.jpeg';
-import surgeon from '../assets/surgeon.jpeg';
 import executives from '../assets/executives.jpeg';
 
 export default function Home() {
@@ -25,16 +24,6 @@ export default function Home() {
       image: executives,
       caption:
         'Physiological Society Of Nigeria (Psn) & Professional Association Of Practicing Clinical Physiologists In Nigeria (PAPCPN) Executives Members.',
-    },
-    {
-      id: 3,
-      image: surgeon,
-      caption: '',
-    },
-    {
-      id: 4,
-      image: flyer,
-      caption: '',
     },
   ];
 

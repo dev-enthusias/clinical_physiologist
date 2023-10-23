@@ -11,8 +11,11 @@ import AssociateForm, {
 import StandardForm from './pages/Forms/StandardForm';
 import ConferenceForm from './pages/Forms/ConferenceForm';
 import About from './pages/About';
+import Contact from './pages/Contact';
+import News from './pages/News';
 import Error from './pages/Error';
 import './index.css';
+import Standard from './pages/Standard';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,18 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <About />,
+  },
+  {
+    path: '/contact',
+    element: <Contact />,
+  },
+  {
+    path: '/standard',
+    element: <Standard />,
+  },
+  {
+    path: '/news',
+    element: <News />,
   },
 ]);
 

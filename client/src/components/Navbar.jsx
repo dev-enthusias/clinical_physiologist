@@ -6,7 +6,7 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <nav className='flex justify-between items-center font-montserrat font-semibold px-6 py-1 lg:px-10 lg:py-2 top-0 left-0 w-full bg-blue-50 z-50 shadow-sm shadow-gray-200'>
+    <nav className='flex justify-between items-center font-montserrat font-semibold px-6 py-1 lg:px-10 lg:py-2 top-0 left-0 w-full z-50 shadow-sm shadow-gray-200'>
       <div className='h-24 w-24 lg:w-28 lg:h-28'>
         <Link to={'/'}>
           <img

@@ -66,16 +66,14 @@ export default function RegisterAs() {
       </div>
 
       <div className='text-right'>
-        <button
-          disabled={regType === '' ? true : false}
-          className='bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-3 rounded-md disabled:from-pink-200 disabled:cursor-not-allowed disabled:to-blue-200'
-        >
-          {regType === '' ? (
-            'Select one'
-          ) : (
-            <Link to={`/register/${regType}`}>Continue</Link>
-          )}
-        </button>
+        <Link to={`/register/${regType}`}>
+          <button
+            disabled={regType === '' ? true : false}
+            className='bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-3 rounded-md disabled:from-pink-200 disabled:cursor-not-allowed disabled:to-blue-200'
+          >
+            {regType === '' ? 'Select one' : 'Continue'}
+          </button>
+        </Link>
       </div>
     </form>
   );
