@@ -3,30 +3,30 @@ import { Form, useActionData } from 'react-router-dom';
 import associate from '../../assets/associate.jpeg';
 
 export async function action({ request }) {
-  try {
-    const formData = await request.formData();
-    const data = Object.fromEntries(formData);
+  const formData = await request.formData();
+  const cred = Object.fromEntries(formData);
 
-    await fetch('http:localhost:3000/api/register/associate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json)
-      .then(data => console.log(data));
+  const res = await fetch('/api/register/associate', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(cred),
+  });
 
-    return {};
-  } catch (error) {
-    console.error('Error processing form data:', error);
-    throw error;
+  const data = await res.json();
+
+  if (!res.ok) {
+    console.error('Error processing form data:');
+    throw error
   }
+
+  return data;
 }
 
 export default function AssociateForm() {
-  const data = useActionData();
-  console.log(data);
+  const result = useActionData();
+  console.log(result);
 
   const titleOptions = [
     { value: 'mr', label: 'Mr' },

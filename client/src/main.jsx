@@ -8,7 +8,9 @@ import RegisterAs from './pages/Forms/RegisterAs';
 import AssociateForm, {
   action as asssoicateAction,
 } from './pages/Forms/AssociateForm';
-import StandardForm from './pages/Forms/StandardForm';
+import StandardForm, {
+  action as standardAction,
+} from './pages/Forms/StandardForm';
 import ConferenceForm from './pages/Forms/ConferenceForm';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -43,6 +45,7 @@ const router = createBrowserRouter([
       {
         path: '/register/standard',
         element: <StandardForm />,
+        action: standardAction,
       },
     ],
   },

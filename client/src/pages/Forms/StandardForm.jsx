@@ -1,8 +1,35 @@
 import React from 'react';
-import { Form } from 'react-router-dom';
+import { Form, useActionData } from 'react-router-dom';
 import professional from '../../assets/professional.jpeg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const cred = Object.fromEntries(formData);
+  console.log(cred);
+
+  const res = await fetch('/api/register/standard', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(cred),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw res.ok;
+  }
+
+  return data;
+}
 
 export default function StandardForm() {
+  const result = useActionData();
+  console.log(result);
+
   const titleOptions = [
     { value: 'mr', label: 'Mr' },
     { value: 'mrs', label: 'Mrs' },
@@ -138,7 +165,10 @@ export default function StandardForm() {
 
           <div className='w-1/2'>
             <label htmlFor='w_phone' className='block font-medium mb-1'>
-              Whatsapp Contact
+              Whatsapp Contact{' '}
+              <span className='text-red-500 text-sm font-normal'>
+                (optional)
+              </span>
             </label>
             <input
               type='number'
@@ -238,7 +268,7 @@ export default function StandardForm() {
             type='file'
             name='certificate'
             id='cert'
-            required
+            // required
             className='appearance-none border-dashed border border-gray-400 px-3 py-2.5 rounded-md focus:outline-none col-span-1 w-full'
           />
         </div>
@@ -254,14 +284,22 @@ export default function StandardForm() {
         </div>
 
         <div className='mb-2'>
-          <button className='bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-3 rounded-md disabled:from-pink-200 disabled:cursor-not-allowed disabled:to-blue-200'>
+          <button
+            className='bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-3 rounded-md disabled:from-pink-200 disabled:cursor-not-allowed disabled:to-blue-200'
+            onClick={result}
+          >
             Proceed to payment
+            <ToastContainer />
           </button>
         </div>
       </Form>
 
       <div className='w-2/5 h-full border'>
-        <img src={professional} alt='Professional member of PAPCPN' className='object-cover h-full w-full' />
+        <img
+          src={professional}
+          alt='Professional member of PAPCPN'
+          className='object-cover h-full w-full'
+        />
       </div>
     </section>
   );

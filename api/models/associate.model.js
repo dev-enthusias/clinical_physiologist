@@ -23,15 +23,6 @@ const associateSchema = new mongoose.Schema(
       require: true,
       unique: true,
     },
-    password: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      require: true,
-      unique: true,
-    },
     dob: {
       type: String,
       require: true,

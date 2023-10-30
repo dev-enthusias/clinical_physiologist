@@ -23,11 +23,6 @@ const standardSchema = new mongoose.Schema(
       require: true,
       unique: true,
     },
-    email: {
-      type: String,
-      require: true,
-      unique: true,
-    },
     dob: {
       type: String,
       require: true,
@@ -47,7 +42,7 @@ const standardSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
-    city: {
+    town_city: {
       type: String,
       require: true,
     },
@@ -71,6 +66,6 @@ const standardSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const StandardMember = mongoose.model('Professional', standardSchema);
+const StandardMember = mongoose.model('Standard', standardSchema);
 
 export default StandardMember;

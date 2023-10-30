@@ -1,0 +1,8 @@
+Once the person have clicked the proceed button what I want is for the person's form data to be submitted to the database and then he is reidrected to the payment portal where he would make payment
+
+then if the prson was filig the form and may be sth happened that made him not to fill the form completely then on clicking on register he or she is redirected to his/her profile page where he can continue to address the issue he or her has not completely address and most of the cases would be payment
+
+Also you want to create a login page where the user can have a view of his or her profile and an edit button if he or she decides to edit thier profile
+
+Also we have react toastify and it is there to ensure that the user is notified about his login credentials on successfully storing the data to the database
+
